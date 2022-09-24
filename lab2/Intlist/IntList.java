@@ -98,6 +98,10 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         IntList ptr = A;
+        if(ptr == null){
+            IntList AB = B;
+            return AB;
+        }
         IntList AB = new IntList(ptr.first, null);
         IntList ptr2 = AB;
         while(ptr.rest != null){
