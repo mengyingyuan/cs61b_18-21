@@ -57,9 +57,16 @@ public class NBody{
             }
             StdDraw.show();
             StdDraw.pause(10);
-            t += dt; 
-        
-        }	
+            t += dt;
+        }
+
+        StdOut.printf("%d\n", N);
+        StdOut.printf("%.2e\n", r);
+        for (Planet planet : pArray) {
+            StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                    planet.xxPos, planet.yyPos, planet.xxVel,
+                    planet.yyVel, planet.mass, planet.imgFileName);
+        }
        
     }
 }
