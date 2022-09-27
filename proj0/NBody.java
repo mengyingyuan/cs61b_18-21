@@ -1,13 +1,14 @@
 public class NBody{
     public static double readRadius(String urlName){
         In in = new In(urlName);
+        in.readDouble();
         return in.readDouble();
     }
 
     public static Planet[] readPlanets(String urlName){
         In in = new In(urlName);
         int N = in.readInt();
-        Double r = in.readDouble();
+        in.readDouble();
         Planet[] pArray = new Planet[N];
         for (int i=0; i<N; i+=1) {
             double xP = in.readDouble();
