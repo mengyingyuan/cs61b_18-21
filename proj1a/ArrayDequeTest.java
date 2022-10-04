@@ -1,6 +1,4 @@
-import static org.junit.Assert.*;
 
-import org.junit.Test;
 public class ArrayDequeTest {
     /* Utility method for printing out empty checks. */
     public static boolean checkEmpty(boolean expected, boolean actual) {
@@ -32,12 +30,11 @@ public class ArrayDequeTest {
 
     /** Adds a few things to the list, checking isEmpty() and size() are correct,
      * finally printing the results.
-     *
      * && is the "and" operation. */
     public static void addIsEmptySizeTest() {
         System.out.println("Running add/isEmpty/Size test.");
 
-        ArrayDeque<String> a1 = new ArrayDeque<String>();
+        ArrayDeque<String> a1 = new ArrayDeque<>();
 
         boolean passed = checkEmpty(true, a1.isEmpty());
 
@@ -67,7 +64,7 @@ public class ArrayDequeTest {
         System.out.println("Running add/remove test.");
 
 
-        ArrayDeque<Integer> a1 = new ArrayDeque<Integer>();
+        ArrayDeque<Integer> a1 = new ArrayDeque<>();
         // should be empty
         boolean passed = checkEmpty(true, a1.isEmpty());
 
@@ -86,7 +83,7 @@ public class ArrayDequeTest {
     //check what happens if the data structure goes from empty, to some non-zero size (e.g. 4 items)
     // back down to zero again, and then back to some non-zero size. This is a common oversight.
     public static void printTest() {
-        ArrayDeque<Integer> a1 = new ArrayDeque<Integer>();
+        ArrayDeque<Integer> a1 = new ArrayDeque<>();
         for(int i =0; i< 4; i+=1) {
             a1.addFirst(1);
             a1.addFirst(2);

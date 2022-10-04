@@ -73,8 +73,7 @@ public class ArrayDeque<T> {
     }
 
     public int plusOne(int index) {
-        int idx =  (index + 1) % items.length;
-        return idx;
+        return (index + 1) % items.length;
     }
 
     public T removeLast(){
