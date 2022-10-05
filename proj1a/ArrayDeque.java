@@ -1,7 +1,7 @@
 public class ArrayDeque<T> {
     private T[] items;
     private int size;
-
+    private int length;
     private int nextFirst;
     private int nextLast;
     public ArrayDeque() {
@@ -13,6 +13,10 @@ public class ArrayDeque<T> {
 
     public int size() {
         return size;
+    }
+
+    public int getLength() {
+        return length;
     }
 
     public void addFirst(T item) {
@@ -27,7 +31,7 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
         T[] newArray = (T[]) new Object[capacity];
         int index = plusOne(nextFirst);
-        if (nextFirst + size < items.length) {
+        if (index + size -1 < items.length) {
             System.arraycopy(items, index, newArray, 0, size);
         }
         else {
@@ -67,6 +71,7 @@ public class ArrayDeque<T> {
         if (items.length >= 16) {
             shrink();
         }
+        length = items.length; // update the length for the sake of testing
         int index = plusOne(nextFirst);
         T first = items[index];
         items[index] = null;
@@ -90,6 +95,7 @@ public class ArrayDeque<T> {
         if (items.length >= 16) {
             shrink();
         }
+        length = items.length; // update the length for the sake of testing
         int index = minusOne(nextLast);
         T last = items[index];
         items[index] = null;

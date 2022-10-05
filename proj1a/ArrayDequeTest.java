@@ -94,10 +94,10 @@ public class ArrayDequeTest {
         }
 
         for (int i = 0; i < 10; i += 1) {
-            System.out.println("removed " + a1.removeFirst() + ", size = " + a1.size());
-            System.out.println("removed " + a1.removeFirst() + ", size = " + a1.size());
-            System.out.println("removed " + a1.removeFirst() + ", size = " + a1.size());
-            System.out.println("removed " + a1.removeFirst() + ", size = " + a1.size());
+            System.out.println("removed " + a1.removeLast() + ", size = " + a1.size());
+            System.out.println("removed " + a1.removeLast() + ", size = " + a1.size());
+            System.out.println("removed " + a1.removeLast() + ", size = " + a1.size());
+            System.out.println("removed " + a1.removeLast() + ", size = " + a1.size());
             a1.printDeque();
             System.out.println(", length = " + a1.getLength());
         }
