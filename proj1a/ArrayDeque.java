@@ -23,7 +23,7 @@ public class ArrayDeque<T> {
         nextFirst = minusOne(nextFirst);
     }
 
-    public void resize(int capacity) {
+    private void resize(int capacity) {
         T[] newArray = (T[]) new Object[capacity];
         int index = plusOne(nextFirst);
         System.arraycopy(items, index, newArray, 0, size - index);
@@ -68,11 +68,11 @@ public class ArrayDeque<T> {
         return first;
     }
 
-    public int minusOne(int index) {
+    private int minusOne(int index) {
         return (index - 1 + items.length) % items.length;
     }
 
-    public int plusOne(int index) {
+    private int plusOne(int index) {
         return (index + 1) % items.length;
     }
 

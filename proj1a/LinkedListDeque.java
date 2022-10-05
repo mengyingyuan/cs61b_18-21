@@ -2,7 +2,7 @@ public class LinkedListDeque<T> {
     private Node sentinel;
     private int size;
 
-    public class Node {
+    private class Node {
         private Node prev;
         private T item;
         private Node next;
@@ -93,9 +93,13 @@ public class LinkedListDeque<T> {
     public T getRecursive(int index) {
         Node p = sentinel.next;
         return getRecursiveHelper(p, index);
-    }
+    }	private void shrink(){
+		if (size/ items.length)
+	}
 
-    public T getRecursiveHelper(Node p, int index) {
+
+
+    private T getRecursiveHelper(Node p, int index) {
         if (index == 0) {
             return p.item;
         }
