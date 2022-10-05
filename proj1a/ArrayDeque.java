@@ -1,7 +1,8 @@
 public class ArrayDeque<T> {
     private T[] items;
     private int size;
-    private int length;
+
+    //private int length;  // used for testing
     private int nextFirst;
     private int nextLast;
     public ArrayDeque() {
@@ -15,9 +16,9 @@ public class ArrayDeque<T> {
         return size;
     }
 
-    public int getLength() {
+    /* public int getLength() {
         return length;
-    }
+    } */
 
     public void addFirst(T item) {
         if (size == items.length) {
@@ -28,14 +29,16 @@ public class ArrayDeque<T> {
         nextFirst = minusOne(nextFirst);
     }
 
+    /** Think carefully! Consider two cases for arraycopy.
+     * Use (index + size - 1) rather than (nextFirst + size) because we treat the array as circular.
+     * if nextFirst is at the rightmost, then index = 0, and (nextFirst + size) != (index + size - 1).*/
     private void resize(int capacity) {
         T[] newArray = (T[]) new Object[capacity];
         int index = plusOne(nextFirst);
-        if (index + size -1 < items.length) {
+        if (index + size - 1 < items.length) { // like 0 0 0 1 1 1 0 0 0, where 0 represents null
             System.arraycopy(items, index, newArray, 0, size);
-        }
-        else {
-            System.arraycopy(items, index, newArray, 0,items.length - index);
+        } else {  // like 1 1 0 0 0  1 1 1
+            System.arraycopy(items, index, newArray, 0, items.length - index);
             System.arraycopy(items, 0, newArray, items.length - index, size - items.length + index);
         }
         items = newArray;
@@ -71,7 +74,7 @@ public class ArrayDeque<T> {
         if (items.length >= 16) {
             shrink();
         }
-        length = items.length; // update the length for the sake of testing
+        //length = items.length; // update the length for the sake of testing
         int index = plusOne(nextFirst);
         T first = items[index];
         items[index] = null;
@@ -95,7 +98,7 @@ public class ArrayDeque<T> {
         if (items.length >= 16) {
             shrink();
         }
-        length = items.length; // update the length for the sake of testing
+        // length = items.length; // update the length for the sake of testing
         int index = minusOne(nextLast);
         T last = items[index];
         items[index] = null;
