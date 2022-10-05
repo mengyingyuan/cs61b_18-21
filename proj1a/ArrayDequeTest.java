@@ -84,7 +84,7 @@ public class ArrayDequeTest {
     // back down to zero again, and then back to some non-zero size. This is a common oversight.
     public static void printTest() {
         ArrayDeque<Integer> a1 = new ArrayDeque<>();
-        for (int i = 0; i < 4; i += 1) {
+        for (int i = 0; i < 5; i += 1) {
             a1.addFirst(1);
             a1.addFirst(2);
             a1.addFirst(3);
@@ -93,11 +93,13 @@ public class ArrayDequeTest {
             System.out.println(", size = " + a1.size());
         }
 
-        for (int i = 0; i < 4; i += 1) {
+        for (int i = 0; i < 5; i += 1) {
             a1.removeFirst();
             a1.removeLast();
             a1.removeFirst();
             a1.removeLast();
+            a1.printDeque();
+            System.out.println(", size = " + a1.size());
         }
         System.out.print(a1.isEmpty()); // True
         a1.addLast(3);

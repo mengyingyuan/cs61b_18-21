@@ -60,6 +60,9 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
+        if (size >= 16) {
+            shrink();
+        }
         int index = plusOne(nextFirst);
         T first = items[index];
         items[index] = null;
@@ -80,6 +83,9 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
+        if (size >= 16) {
+            shrink();
+        }
         int index = minusOne(nextLast);
         T last = items[index];
         items[index] = null;
@@ -88,6 +94,11 @@ public class ArrayDeque<T> {
         return last;
     }
 
+    private void shrink() {
+        if ((size-1)/ (double)items.length < 0.25) {
+            resize(items.length/2);
+        }
+    }
     public T get(int index) {
         if (index < 0 || index >= size || isEmpty()) {
             return null;

@@ -93,12 +93,7 @@ public class LinkedListDeque<T> {
     public T getRecursive(int index) {
         Node p = sentinel.next;
         return getRecursiveHelper(p, index);
-    }	private void shrink(){
-		if (size/ items.length)
-	}
-
-
-
+    }
     private T getRecursiveHelper(Node p, int index) {
         if (index == 0) {
             return p.item;
