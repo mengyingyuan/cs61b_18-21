@@ -95,8 +95,8 @@ public class ArrayDeque<T> {
     }
 
     private void shrink() {
-        if ((size-1)/ (double)items.length < 0.25) {
-            resize(items.length/2);
+        if ((size - 1) / (double) items.length < 0.25) {
+            resize((size - 1) * 2);
         }
     }
     public T get(int index) {

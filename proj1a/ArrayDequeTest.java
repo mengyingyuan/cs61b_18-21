@@ -88,24 +88,28 @@ public class ArrayDequeTest {
             a1.addFirst(1);
             a1.addFirst(2);
             a1.addFirst(3);
-            a1.addLast(4);
+            a1.addFirst(4);
             a1.printDeque();
             System.out.println(", size = " + a1.size());
         }
 
         for (int i = 0; i < 5; i += 1) {
             a1.removeFirst();
-            a1.removeLast();
             a1.removeFirst();
-            a1.removeLast();
+            a1.removeFirst();
+            a1.removeFirst();
             a1.printDeque();
             System.out.println(", size = " + a1.size());
         }
-        System.out.print(a1.isEmpty()); // True
-        a1.addLast(3);
-        a1.addFirst(1);
-        a1.addLast(4);
-        a1.printDeque(); // 1 3 4
+
+        for (int i = 0; i < 5; i += 1) {
+            a1.addLast(1);
+            a1.addLast(2);
+            a1.addLast(3);
+            a1.addLast(4);
+            a1.printDeque();
+            System.out.println(", size = " + a1.size());
+        }
     }
 
     public static void main(String[] args) {
